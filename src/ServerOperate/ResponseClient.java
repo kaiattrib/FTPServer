@@ -37,6 +37,7 @@ public class ResponseClient extends Thread{
                 infoFormClinet=infoTemp.split("%");//消息拆分读取
             } catch (IOException e) {
                 System.out.println("消息读取错误请检查"+username+"用户断开\n" +username+"线程结束");
+                SqlUtils.Reset(username);
                 return;
             }
             if (infoTemp.isEmpty())
@@ -80,7 +81,7 @@ public class ResponseClient extends Thread{
                     }
                     else {
                         PW.println("Reply%DownOK");
-                        System.out.println("Reply%DOK发到客服端");
+                        System.out.println("Reply%DownOK到客服端");
                         PW.flush();
                         new FileSendDaemon(7777, tasklist).StartSendFile();
                     }
@@ -102,7 +103,7 @@ public class ResponseClient extends Thread{
 
         if ("MoveFile".equals(infoFormClinet[1]))
             {
-                FileFunction.Rename(new File(infoFormClinet[2]),new File(infoFormClinet[3]));
+                FileFunction.Move(new File(infoFormClinet[2]),new File(infoFormClinet[3]));
                 return;
             }
     }
@@ -136,9 +137,27 @@ public class ResponseClient extends Thread{
     //信息的获取输出
     public void InfoToClient(String[] infoFormClient){
         System.out.println("收到信息读取操作");
-        String string=new String("DirInfo%");
-        string=string+DirectoryFunction.scaner(new File(infoFormClient[1]));
-        PW.println(string);
-        PW.flush();
+        if ("FileSize".equals(infoFormClinet[1])){
+            File file=new File(infoFormClinet[2]);
+            String FileSize=null;
+            try {
+                long fileSize=new RandomAccessFile(file,"rw").length();
+                FileSize=fileSize+"";
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            PW.println("Reply%FileSize%"+FileSize);
+            System.out.println("Reply%FileSize%"+infoFormClinet[2]+FileSize);
+            PW.flush();
+            System.out.println("推出"+FileSize);
+        }
+        else {
+            String string=new String("DirInfo%");
+            string=string+DirectoryFunction.scaner(new File(infoFormClient[1]));
+            PW.println(string);
+            PW.flush();
+            System.out.println("推出"+string);
+            return;
+        }
     }
 }

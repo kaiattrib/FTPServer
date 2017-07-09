@@ -27,16 +27,35 @@ public class DirectoryFunction {
         if(folder.exists())
         {
             if(folder.delete())
-                System.out.println("文件夹删除成功");
+                System.out.println("空文件夹删除成功");
             else
                 {
-                System.out.println("文件夹无法删除");
+                    System.out.println("文件夹里有文件 进入递归删除");
+                    removedir(folder);
+                    System.out.println("递归文件夹删除成功");
                 }
         }else
         {
             System.out.println("文件夹不存在");
         }
     }
+
+        public static void removedir(File file)
+        {
+            File[] files=file.listFiles();
+            for(File f:files)
+            {
+                if(f.isDirectory())//递归调用
+                {
+                    removedir(f);
+                }
+                else {
+                    f.delete();
+                }
+            }
+            //一层目录下的内容都删除以后，删除掉这个文件夹
+            file.delete();
+        }
     //文件夹的重命名
     public static void renametofolder(File folder,File newfolder)
     {

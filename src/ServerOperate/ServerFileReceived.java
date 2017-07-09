@@ -1,8 +1,5 @@
 package ServerOperate;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.net.Socket;
 import java.sql.SQLException;
 
@@ -20,7 +17,7 @@ public class ServerFileReceived extends Thread{
     long filePionterSzie;
     boolean Finish=false;
     DataInputStream in = null;
-
+    PrintWriter PW;//告诉客服端，服务端收到了多少
 
     //传入文件名，从断点开始接收
     public ServerFileReceived(String filename, Socket client, long filePionter,String tasklist[]) throws IOException {
@@ -50,6 +47,7 @@ public class ServerFileReceived extends Thread{
 
     public void run() {
         try {
+            PW=new PrintWriter(client.getOutputStream());//告诉客服端，服务端收到了多少
             in = new DataInputStream(client.getInputStream());//装配
             System.out.println("服务器开始接收文件...");
             byte[] buf = new byte[1024];
@@ -58,9 +56,12 @@ public class ServerFileReceived extends Thread{
             {
                 randomAccessFile.write(buf, 0, buf.length);
                 filePionterEnd=randomAccessFile.getFilePointer();//保存读取到的断点
+                PW.println(filePionterEnd+"");//
+                PW.flush();
                 if (isKill)
                     throw new Exception();
-            }System.out.println("服务器文件接收完成");
+            }
+            System.out.println("服务器文件接收完成");
             in.close();
             randomAccessFile.close();
         } catch (IOException e) {//产生错误 保存断点，如果没有断点记录，会插入记录
@@ -84,6 +85,7 @@ public class ServerFileReceived extends Thread{
             System.out.println("错误:文件传输服务端接收文件错误" +"接收断点: "+getFilePionterEnd());
             return;
         }
+
         if (filePionterEnd>=filePionterSzie) {
             Finish = true;
             System.out.println("接收完全"+filename + "从断点 " + filePionterStart + "接收到" + filePionterEnd + "正常关闭文件传输");
