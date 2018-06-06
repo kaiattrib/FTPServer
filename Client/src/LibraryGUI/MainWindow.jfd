@@ -1,0 +1,277 @@
+JFDML JFormDesigner: "5.2.5.1.342" Java: "1.8.0_112-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"iconImage": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/mainicon.png" )
+			"$sizePolicy": 1
+			"title": "FTP Client 2017"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "MianWindowClosing", true ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+					name: "tabbedPane"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+						name: "panelFileHome"
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPaneFileList"
+							add( new FormComponent( "javax.swing.JList" ) {
+								name: "Filelist"
+								"visibleRowCount": 10
+							} )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 15
+							"y": 120
+							"width": 300
+							"height": 445
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileList"
+							"text": "远程文件列表"
+							"font": &Font0 new java.awt.Font( "宋体", 0, 20 )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 20
+							"y": 10
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileList2"
+							"text": "当前操作路径:"
+							"font": #Font0
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"width": 580
+							"height": 24
+							"x": 20
+							"y": 40
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFlash"
+							"text": "刷新列表"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/FlushIcon.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelFlashMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 330
+							"y": 120
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileUp"
+							"text": "上传文件"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/UPico.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelFileUpMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 330
+							"y": 250
+							"width": 135
+							"height": 60
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label1FileDown"
+							"text": "下载文件"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/downIcon.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "label1FileDownMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 330
+							"y": 190
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileDel"
+							"text": "删除"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/close_48px_1205793_easyicon.net.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelFileDelMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 220
+							"y": 70
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelOpenDir"
+							"text": "前进"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/48px_Enter.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelOpenDirMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 15
+							"y": 70
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelCreateDir"
+							"text": "新建目录"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/list_48px_1205813_easyicon.net.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelCreateDirMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 335
+							"y": 325
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label3"
+							"text": "消息框:"
+							"font": new java.awt.Font( "宋体", 0, 20 )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 600
+							"y": 5
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelBackDir"
+							"text": "后退"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/48Xback.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelBackDirMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 115
+							"y": 70
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelRnameFile"
+							"text": "重新命名"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/repeat_52.317991631799px_1205841_easyicon.net.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelRnameFileMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 335
+							"y": 395
+						} )
+						add( new FormComponent( "javax.swing.JFileChooser" ) {
+							name: "fileChooserLocalFile"
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 500
+							"y": 115
+							"width": 565
+							"height": 455
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileMoveMark"
+							"text": "标记移动"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/move_48px_1205817_easyicon.net.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelFileMoveMarkMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 335
+							"y": 455
+						} )
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPane1"
+							add( new FormComponent( "javax.swing.JTextArea" ) {
+								name: "textArea"
+							} )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 600
+							"y": 30
+							"width": 455
+							"height": 80
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelFileMove"
+							"text": "移到此处"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/checked_48px_1205792_easyicon.net.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelFileMoveMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 335
+							"y": 515
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": "主目录"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/grid_32px_1205809_easyicon.net.png" )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+						name: "panelFileUp"
+						add( new FormComponent( "javax.swing.JProgressBar" ) {
+							name: "progressBarUp1"
+							"stringPainted": true
+							"toolTipText": "正在下载"
+							"font": &Font1 new java.awt.Font( "宋体", 0, 20 )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 10
+							"y": 5
+							"width": 865
+							"height": 60
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelUpBar1StartOrPause"
+							"text": "开始"
+							"icon": &SwingIcon0 new com.jformdesigner.model.SwingIcon( 0, "/IconFile/playIcon.png" )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"width": 85
+							"height": 50
+							"x": 880
+							"y": 10
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelUpBar1Del1"
+							"text": "删除"
+							"icon": &SwingIcon1 new com.jformdesigner.model.SwingIcon( 0, "/IconFile/delIcon.png" )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"width": 90
+							"height": 50
+							"x": 970
+							"y": 10
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": "文件上传"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/cloud_computing_44.359788359788px_1205798_easyicon.net.png" )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+						name: "panelFileDown"
+						add( new FormComponent( "javax.swing.JProgressBar" ) {
+							name: "progressBarDown1"
+							"stringPainted": true
+							"toolTipText": "正在下载"
+							"font": #Font1
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 10
+							"y": 5
+							"width": 865
+							"height": 60
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelDownBar1StartOrPause"
+							"text": "开始"
+							"icon": #SwingIcon0
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 880
+							"y": 10
+							"width": 85
+							"height": 50
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelDownBar1Del"
+							"text": "删除"
+							"icon": #SwingIcon1
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 970
+							"y": 10
+							"width": 90
+							"height": 50
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": "文件下载"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/cloud_computing_44.359788359788px_1205795_easyicon.net.png" )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+						name: "panelUserSet"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelExit"
+							"text": "退出"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/48XExit.png" )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "labelExitMouseClicked", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"x": 965
+							"y": 495
+							"width": 95
+							"height": 70
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": "用户设置"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/IconFile/48Xuseset.png" )
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": -5
+					"y": 0
+					"width": 1075
+					"height": 635
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 25 )
+			"size": new java.awt.Dimension( 1095, 685 )
+		} )
+	}
+}
