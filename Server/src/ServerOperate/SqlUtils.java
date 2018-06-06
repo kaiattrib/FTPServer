@@ -19,7 +19,7 @@ public class SqlUtils {
 
     public SqlUtils() throws ClassNotFoundException, SQLException {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://112.74.58.116:3306/FTPDepot2?useUnicode=true&characterEncoding=utf8";
+        String url = "jdbc:mysql://IP/FTPDepot2?useUnicode=true&characterEncoding=utf8";
         String user = "FTPUser";
         String password = "admin";
         Class.forName(driver);//加载驱动
